@@ -45,6 +45,7 @@ temp_frames/
 *.mkv
 *.log
 *.csv
+*.zip
 
 # Models (large files)
 models/*.pth
