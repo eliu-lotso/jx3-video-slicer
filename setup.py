@@ -13,7 +13,7 @@ setup(
     description="剑网三花舞剑竞技场视频智能切片工具",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/jx3-video-slicer",
+    url="https://github.com/eliu-lotso/jx3-video-slicer",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",

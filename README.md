@@ -21,7 +21,7 @@
 
 1. 克隆仓库：
 ```bash
-git clone https://github.com/yourusername/jx3-video-slicer.git
+git clone https://github.com/eliu-lotso/jx3-video-slicer.git
 cd jx3-video-slicer
 ```
 
