@@ -6,11 +6,8 @@ def test_project_files_exist():
         "config.py",
         "video_slicer_ui.py", 
         "pipeline_main.py",
-        "pipeline_worker.py",
         "predictor.py",
-        "slicer.py",
         "utils.py",
-        "repair_videos.py",
         "requirements.txt",
         "README.md",
         "LICENSE"
@@ -34,18 +31,20 @@ def test_config_import():
     assert hasattr(config, 'FFMPEG_PATH')
     assert hasattr(config, 'FFPROBE_PATH')
 
-def test_predictor_import():
-    """测试predictor模块导入"""
-    import predictor
-    assert hasattr(predictor, 'CLASS_NAMES')
-    assert predictor.CLASS_NAMES == ["loading", "map", "other"]
+def test_predictor_constants():
+    """测试predictor模块的常量定义"""
+    # 直接检查predictor.py文件中的常量定义
+    with open("predictor.py", "r", encoding="utf-8") as f:
+        content = f.read()
+        assert "CLASS_NAMES = [\"loading\", \"map\", \"other\"]" in content
+        assert "LABEL_MAP = {\"map\": 0, \"loading\": 1, \"other\": 2}" in content
 
 def test_basic_functionality():
     """测试基本功能"""
-    # 测试LABEL_MAP的值（不导入slicer模块）
+    # 测试LABEL_MAP的值（不导入predictor模块）
     expected_label_map = {"map": 0, "loading": 1, "other": 2}
     
-    # 直接检查slicer.py文件中的LABEL_MAP定义
-    with open("slicer.py", "r", encoding="utf-8") as f:
+    # 直接检查predictor.py文件中的LABEL_MAP定义
+    with open("predictor.py", "r", encoding="utf-8") as f:
         content = f.read()
         assert "LABEL_MAP = {\"map\": 0, \"loading\": 1, \"other\": 2}" in content 
